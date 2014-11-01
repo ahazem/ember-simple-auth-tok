@@ -9,9 +9,9 @@
   <body>
     <div id="mocha"></div>
 
-    <script src="vendor/jquery-2.1.1.js"></script>
-    <script src="vendor/handlebars.js"></script>
-    <script src="vendor/ember-1.8.0.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/handlebars/handlebars.min.js"></script>
+    <script src="../bower_components/ember/ember.min.js"></script>
 
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
@@ -21,7 +21,9 @@
       mocha.reporter('html');
     </script>
 
-    <script src="vendor/loader.js"></script>
+    <script src="lib/loader.js"></script>
+
+    <script src="../bower_components/ember-simple-auth/simple-auth.amd.js"></script>
 
     <script src="../tmp/simple-auth-tok.amd.js"></script>
     <script src="../tmp/simple-auth-tok-specs.amd.js"></script>
