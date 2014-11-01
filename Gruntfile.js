@@ -12,7 +12,7 @@ module.exports = function(grunt) {
   this.initConfig({
     watch: {
       files: ['lib/**/*', 'specs/**/*', 'Gruntfile.js'],
-      tasks: ['jshint', 'clean', 'transpile', 'mocha']
+      tasks: ['jshint', 'clean', 'transpile', 'concat', 'mocha']
     },
 
     jshint: {
