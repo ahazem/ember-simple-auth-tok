@@ -15,6 +15,12 @@ describe('Tok', function() {
       expect(Tok.create().serverAuthenticateEndpoint).to.eq('serverAuthenticateEndpoint');
     });
 
+    it('assigns serverInvalidateEndpoint from configuration', function() {
+      Configuration.serverInvalidateEndpoint = 'serverInvalidateEndpoint';
+
+      expect(Tok.create().serverInvalidateEndpoint).to.eq('serverInvalidateEndpoint');
+    });
+
     it('assigns modelName from configuration', function() {
       Configuration.modelName = 'modelName';
 
