@@ -38,6 +38,26 @@ describe('Tok', function() {
     });
   });
 
+  describe('#restore', function() {
+    beforeEach(function() {
+      this.server.respondWith('POST', '/login', [
+        201,
+        { 'Content-Type': 'application/json' },
+        ' {"token": "secret token" } '
+      ]);
+    });
+
+    describe('when data contains authentication token', function() {
+      it('resolves with correct token', function(done) {
+        this.authenticator.restore({ "token": "secret token" }).then(function(content) {
+          expect(content).to.eql({ "token": "secret token" });
+
+          done();
+        });
+      });
+    });
+  });
+
   describe('#authenticate', function() {
     beforeEach(function() {
       sinon.spy(Ember.$, 'ajax');
@@ -108,7 +128,7 @@ describe('Tok', function() {
     });
 
     it('sends a DELETE request to the server invalidate endpoint', function(done) {
-      this.authenticator.invalidate();
+      this.authenticator.invalidate({});
 
       Ember.run.next(function() {
         var args = Ember.$.ajax.getCall(0).args[0];
