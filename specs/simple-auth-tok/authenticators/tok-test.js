@@ -21,6 +21,12 @@ describe('Tok', function() {
       expect(Tok.create().modelName).to.eq('modelName');
     });
 
+    it('assigns tokenAttributeName from configuration', function() {
+      Configuration.tokenAttributeName = 'tokenAttributeName';
+
+      expect(Tok.create().tokenAttributeName).to.eq('tokenAttributeName');
+    });
+
     afterEach(function() {
       Configuration.load({}, {});
     });
