@@ -69,6 +69,30 @@ describe('Tok', function() {
           Configuration.load({}, {});
         });
       });
+
+      describe('when the session does not contain authentication token', function() {
+        beforeEach(function() {
+          this.authorizer.set('session.token', null);
+        });
+
+        it('does not authorize the request', function() {
+          this.authorizer.authorize(this.request, {});
+
+          expect(this.request.setRequestHeader).to.not.have.been.called;
+        });
+      });
+    });
+
+    describe('when the session is not authenticated', function() {
+      beforeEach(function() {
+        this.authorizer.set('session.isAuthenticated', false);
+      });
+
+      it('does not authorize the request', function() {
+        this.authorizer.authorize(this.request, {});
+
+        expect(this.request.setRequestHeader).to.not.have.been.called;
+      });
     });
   });
 });
