@@ -1,0 +1,24 @@
+{
+  "name": "ember-simple-auth-tok",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ahazem/ember-simple-auth-tok",
+  "authors": [
+    "Ahmed Hazem <ahazemm@gmail.com>"
+  ],
+  "description": "An extension to Ember Simple Auth library that provides an authenticator and authorizer compatible with Ruby on Rails token-based authentication plugin Tok.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "ember": "~1.8.0"
+    "ember-simple-auth": "~0.7.0",
+    "handlebars": "~1.3.0"
+  }
+}
