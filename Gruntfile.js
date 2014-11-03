@@ -19,7 +19,8 @@ module.exports = function(grunt) {
       library: 'lib/**/*.js',
       specs: 'specs/**/*.js',
       options: {
-        esnext: true
+        esnext: true,
+        expr: true
       }
     },
 
