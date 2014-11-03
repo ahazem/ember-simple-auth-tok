@@ -1,9 +1,9 @@
 import Configuration from '/simple-auth-tok/configuration';
 
 describe('Configuration', function() {
-  describe('serverTokenEndpoint', function() {
+  describe('serverAuthenticateEndpoint', function() {
     it('defaults to /login', function() {
-      expect(Configuration.serverTokenEndpoint).to.eq('/login');
+      expect(Configuration.serverAuthenticateEndpoint).to.eq('/login');
     });
   });
 
@@ -20,10 +20,10 @@ describe('Configuration', function() {
   });
 
   describe('.load', function() {
-    it('sets serverTokenEndpoint correctly', function() {
-      Configuration.load(this.container, { serverTokenEndpoint: '/sign_in' });
+    it('sets serverAuthenticateEndpoint correctly', function() {
+      Configuration.load(this.container, { serverAuthenticateEndpoint: '/sign_in' });
 
-      expect(Configuration.serverTokenEndpoint).to.eq('/sign_in');
+      expect(Configuration.serverAuthenticateEndpoint).to.eq('/sign_in');
     });
 
     it('sets modelName correctly', function() {

@@ -9,10 +9,10 @@ describe('Tok', function() {
   });
 
   describe('initialization', function() {
-    it('assigns serveTokenEndpoint from configuration', function() {
-      Configuration.serverTokenEndpoint = 'serverTokenEndpoint';
+    it('assigns serverAuthenticateEndpoint from configuration', function() {
+      Configuration.serverAuthenticateEndpoint = 'serverAuthenticateEndpoint';
 
-      expect(Tok.create().serverTokenEndpoint).to.eq('serverTokenEndpoint');
+      expect(Tok.create().serverAuthenticateEndpoint).to.eq('serverAuthenticateEndpoint');
     });
 
     it('assigns modelName from configuration', function() {
