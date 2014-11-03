@@ -58,5 +58,43 @@ describe('Tok', function() {
         done();
       });
     });
+
+    describe('when authentication request is successful', function() {
+      beforeEach(function() {
+        this.server.respondWith('POST', '/login', [
+          201,
+          { 'Content-Type': 'application/json' },
+          '{ "token": "secret token" }'
+        ]);
+      });
+
+      it('resolves with correct token', function() {
+        this.authenticator.authenticate({ email: 'an@email.com', password: '123456' }).then(function(data) {
+          expect(data).to.eq({ token: 'secret token' });
+          done();
+        });
+      });
+    });
+
+    describe('when authentication request is not successful', function() {
+      beforeEach(function() {
+        this.server.respondWith('POST', '/login', [
+          422,
+          { 'Content-Type': 'application/json' },
+          '{ "error": "Invalid email or password!" }'
+        ]);
+      });
+
+      it('rejects with correct error', function() {
+        this.authenticator.authenticate({ email: 'wrong@email.com', password: 'incorrect password' }).then(null, function(error) {
+          expect(error).to.eq({ "error": "Invalid email or password!" });
+          done();
+        });
+      });
+    });
+
+    afterEach(function() {
+      Ember.$.ajax.restore();
+    });
   });
 });
