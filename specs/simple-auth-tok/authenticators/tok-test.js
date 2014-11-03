@@ -70,9 +70,10 @@ describe('Tok', function() {
         ]);
       });
 
-      it('resolves with correct token', function() {
+      it('resolves with correct token', function(done) {
         this.authenticator.authenticate({ email: 'an@email.com', password: '123456' }).then(function(data) {
-          expect(data).to.eq({ token: 'secret token' });
+          expect(data).to.eql({ token: 'secret token' });
+
           done();
         });
       });
@@ -87,9 +88,10 @@ describe('Tok', function() {
         ]);
       });
 
-      it('rejects with correct error', function() {
+      it('rejects with correct error', function(done) {
         this.authenticator.authenticate({ email: 'wrong@email.com', password: 'incorrect password' }).then(null, function(error) {
-          expect(error).to.eq({ "error": "Invalid email or password!" });
+          expect(error).to.eql({ "error": "Invalid email or password!" });
+
           done();
         });
       });
@@ -97,6 +99,30 @@ describe('Tok', function() {
 
     afterEach(function() {
       Ember.$.ajax.restore();
+    });
+  });
+
+  describe('#invalidate', function() {
+    beforeEach(function() {
+      sinon.spy(Ember.$, 'ajax');
+    });
+
+    it('sends a DELETE request to the server invalidate endpoint', function(done) {
+      this.authenticator.invalidate();
+
+      Ember.run.next(function() {
+        var args = Ember.$.ajax.getCall(0).args[0];
+        delete args.beforeSend;
+
+        expect(args).to.eql({
+          url: '/logout',
+          type: 'DELETE',
+          data: {},
+          dataType: 'json'
+        });
+
+        done();
+      });
     });
   });
 });
