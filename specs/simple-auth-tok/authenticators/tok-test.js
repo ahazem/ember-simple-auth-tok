@@ -56,6 +56,25 @@ describe('Tok', function() {
         });
       });
     });
+
+    describe('when data contains custom token', function() {
+      beforeEach(function() {
+        Configuration.tokenAttributeName = 'employee.token';
+        this.authenticator = Tok.create();
+      });
+
+      it('resolves with correct token', function(done) {
+        this.authenticator.restore({ employee: { token: "secret token" } }).then(function(content) {
+          expect(content).to.eql({ employee: { token: "secret token" } });
+
+          done();
+        });
+      });
+
+      afterEach(function() {
+        Configuration.load({}, {});
+      });
+    });
   });
 
   describe('#authenticate', function() {
