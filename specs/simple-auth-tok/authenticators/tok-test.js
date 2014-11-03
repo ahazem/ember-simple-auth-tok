@@ -43,16 +43,12 @@ describe('Tok', function() {
       sinon.spy(Ember.$, 'ajax');
     });
 
-    it('sends an AJAX request to the server token endpoint', function(done) {
+    it('sends an POST request to the server authenticate endpoint', function(done) {
       this.authenticator.authenticate({ email: 'an@email.com', password: '123456' });
 
       Ember.run.next(function() {
         var args = Ember.$.ajax.getCall(0).args[0];
-        console.log(args);
-
         delete args.beforeSend;
-
-        console.log(args);
 
         expect(args).to.eql({
           url: '/login',
