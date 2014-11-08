@@ -82,7 +82,7 @@ describe('Tok', function() {
       sinon.spy(Ember.$, 'ajax');
     });
 
-    it('sends an POST request to the server authenticate endpoint', function(done) {
+    it('sends a POST request to the server authenticate endpoint', function(done) {
       this.authenticator.authenticate({ email: 'an@email.com', password: '123456' });
 
       Ember.run.next(function() {
