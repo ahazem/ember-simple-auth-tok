@@ -83,11 +83,13 @@ describe('Tok', function() {
     });
 
     it('sends a POST request to the server authenticate endpoint', function(done) {
-      this.authenticator.authenticate({ email: 'an@email.com', password: '123456' });
+      this.authenticator.authenticate({ identification: 'an@email.com', password: '123456' });
 
       Ember.run.next(function() {
         var args = Ember.$.ajax.getCall(0).args[0];
         delete args.beforeSend;
+
+        console.log(args);
 
         expect(args).to.eql({
           url: '/login',
@@ -110,7 +112,7 @@ describe('Tok', function() {
       });
 
       it('resolves with correct token', function(done) {
-        this.authenticator.authenticate({ email: 'an@email.com', password: '123456' }).then(function(data) {
+        this.authenticator.authenticate({ identification: 'an@email.com', password: '123456' }).then(function(data) {
           expect(data).to.eql({ token: 'secret token' });
 
           done();
@@ -128,7 +130,7 @@ describe('Tok', function() {
       });
 
       it('rejects with correct error', function(done) {
-        this.authenticator.authenticate({ email: 'wrong@email.com', password: 'incorrect password' }).then(null, function(error) {
+        this.authenticator.authenticate({ identification: 'wrong@email.com', password: 'incorrect password' }).then(null, function(error) {
           expect(error).to.eql({ "error": "Invalid email or password!" });
 
           done();
