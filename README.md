@@ -29,8 +29,6 @@ Refer to [Tok](https://github.com/ahazem/tok)'s repository for more information 
 
 ## Contributing
 
-### How to?
-
 Contributes are welcome. Please follow the instructions below to get started:
 
 * Fork the repository.
@@ -41,7 +39,7 @@ Contributes are welcome. Please follow the instructions below to get started:
 
 * Make any necessary changes to the documentation to reflect your changes.
 
-* Submit a pull request. Please be sure to include a descriptive title and some information about the changes you've made.
+* Submit a pull request. Please be sure to include a descriptive title and some information about the changes you've made, why they should be included and soon.
 
 ### Running tests
 
