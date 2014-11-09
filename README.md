@@ -6,7 +6,7 @@ This is an extension to the [Ember Simple Auth](https://github.com/simplabs/embe
 
 To install Ember Simple Auth Tok in an Ember.js application you have three options:
 
-* If you are using [Ember CLI](https://github.com/stefanpenner/ember-cli), just add the [Ember CLI addon](https://github.com/ahazem/ember-cli-simple-auth-tok) to your project (just run the two installation commands and you're all set).
+* If you are using [Ember CLI](https://github.com/stefanpenner/ember-cli), just add the [Ember CLI addon](https://github.com/ahazem/ember-cli-simple-auth-tok) to your project (run the two installation commands and you're all set).
 
 * Ember Simple Auth Tok is also packaged as a [bower component](https://github.com/ahazem/ember-simple-auth-tok-component), offering an AMD build in addition to a browserified version. If you're using the AMD build from bower, be sure to require the autoloader as follows:
 
