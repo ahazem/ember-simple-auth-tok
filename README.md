@@ -26,6 +26,44 @@ Refer to [Tok](https://github.com/ahazem/tok)'s repository for more information 
 
 ### Client-side setup
 
+Start with creating a new Ember CLI application if you haven't already.
+
+```
+ember new my_app
+```
+
+Adding [Ember Simple Auth](https://github.com/simplabs/ember-simple-auth) is actually fairly easy to do, just install its [Ember CLI](https://github.com/simplabs/ember-cli-simple-auth-tok) addon in your application directory:
+
+```
+npm install --save-dev ember-cli-simple-auth
+```
+
+and then run the generator:
+
+```
+ember generate ember-cli-simple-auth
+```
+
+Likewise, do the same for this extension using the installation section above. Done? Let's continue then. We will start by creating some routes, in your `app/router.js` file add the following routes:
+
+```js
+Router.map(function() {
+  // Routes for handling authentication and invalidation.
+  this.route('login');
+  this.route('logout');
+
+  // And a protected route.
+  this.route('protected');
+});
+```
+
+The easiest way to use the session is by including the `ApplicationRouteMixin` in your application route, this will make the session available in all routes and controllers of the application. To do this, create a new route at `app/routes/application.js`
+
+```js
+import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
+
+export default Ember.Route.extend(ApplicationRouteMixin);
+```
 
 ## Contributing
 
