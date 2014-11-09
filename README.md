@@ -16,15 +16,34 @@ To install Ember Simple Auth Tok in an Ember.js application you have three optio
 
 * You can also download a pre-built version from the [releases](https://github.com/ahazem/ember-simple-auth-tok/releases) page.
 
-## Server-side setup
+## Usage
+
+This section explains how to use the extension along with [Ember Simple Auth](https://github.com/simplabs/ember-simple-auth) and [Tok](https://github.com/ahazem/tok).
+
+### Server-side setup
 
 Refer to [Tok](https://github.com/ahazem/tok)'s repository for more information on how to get Tok working with a Rails::API app.
 
-# Contribute
+### Client-side setup
 
-## How to contribute?
 
-## Run tests
+## Contributing
+
+### How to?
+
+Contributes are welcome. Please follow the instructions below to get started:
+
+* Fork the repository.
+
+* Create a branch for your edits, e.g. `git checkout -b fix-authentication`.
+
+* Usually, you're expected to write tests for your changes. Please refer to the section below on how to get tests running. 
+
+* Make any necessary changes to the documentation to reflect your changes.
+
+* Submit a pull request. Please be sure to include a descriptive title and some information about the changes you've made.
+
+### Running tests
 
 To run tests, you need to have [node.js](http://nodejs.org) and [bower](http://bower.io) installed. If you have those, simply run:
 
@@ -44,7 +63,7 @@ and install npm dependencies:
 npm install -D
 ```
 
-and install bower dependencies as well:
+and bower dependencies as well:
 
 ```
 bower install
