@@ -39,7 +39,7 @@ Contributes are welcome. Please follow the instructions below to get started:
 
 * Make any necessary changes to the documentation to reflect your changes.
 
-* Submit a pull request. Please be sure to include a descriptive title and some information about the changes you've made, why they should be included and soon.
+* Submit a pull request. Please be sure to include a descriptive title and some information about the changes you've made, why they should be included and so on.
 
 ### Running tests
 
