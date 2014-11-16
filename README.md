@@ -65,6 +65,35 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 export default Ember.Route.extend(ApplicationRouteMixin);
 ```
 
+Since we want the application to require the session to be authenticated when `/protected` is accessed, we will use the `AuthenticatedRouteMixin` provided by Ember Simple Auth in our `app/routes/protected.js` route:
+
+```js
+import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+
+export default Ember.Route.extend(AuthenticatedRouteMixin);
+```
+
+This goes the same for any other route we want to protect. To avoid having to repeat that for each route you want to require authentication for, create an `authenticatedRoute` or something and make all protected routes extend from that one:
+
+```js
+// app/routes/authenticated.js
+import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+
+var AuthenticatedRoute = Ember.Route.extend(AuthenticatedRouteMixin);
+
+export default AuthenticatedRoute; 
+
+// app/routes/protected_one.js
+import AuthenticatedRoute from './authenticated';
+
+export default AuthenticatedRoute.extend();
+
+// app/routes/protected_two.js
+import AuthenticatedRoute from './authenticated';
+
+export default AuthenticatedRoute.extend();
+```
+
 ## Contributing
 
 Contributes are welcome. Please follow the instructions below to get started:
