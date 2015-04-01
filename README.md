@@ -73,7 +73,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin);
 ```
 
-This goes the same for any other route we want to protect. To avoid having to repeat that for each route you want to require authentication for, create an `authenticatedRoute` or something and make all protected routes extend from that one:
+This goes the same for any other route we want to protect. To avoid having to repeat that for each route you want to require authentication for, create an `authenticatedRoute` or something and ensure all protected routes will extend that one:
 
 ```js
 // app/routes/authenticated.js
@@ -94,9 +94,11 @@ import AuthenticatedRoute from './authenticated';
 export default AuthenticatedRoute.extend();
 ```
 
+Next, you need to specify you're going to use a custom authenticator (in our case, `authenticator:tok`) in your `login` controller, to do so, create a controller at `app/controllers/login.js`:
+
 ## Contributing
 
-Contributes are welcome. Please follow the instructions below to get started:
+Contributions are welcome. Please follow the instructions below to get started:
 
 * Fork the repository.
 
